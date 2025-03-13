@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Clock</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="clock">
+
+            <div class="number">
+                <div class="twelve">12</div>
+                <div class="three">3</div>
+                <div class="six">6</div>
+                <div class="nine">9</div>
+            </div>
+
+            <div class="arrow">
+                <div class="hour"></div>
+                <div class="minute"></div>
+                <div class="second"></div>
+            </div>
+
+        </div>
+    </div>
+
+
+<script>
+    
+
+    const hour = document.querySelector(".hour");
+    const minute = document.querySelector(".minute");
+    const second = document.querySelector(".second");
+
+    function setDate() {
+        const now = new Date();
+
+        const getSecond = now.getSeconds();
+        const getMinutes = now.getMinutes();
+        const getHour = now.getHours();
+
+        console.log(getSecond);
+        console.log(getMinutes);
+        console.log(getHour);
+        
+
+        const secondDegree = (getSecond / 60) * 360;
+        const minuteDegree = (getMinutes / 60) * 360;
+        const houreDegree = (getHour / 12) * 360;
+
+        console.log(secondDegree);
+        console.log(minuteDegree);
+        console.log(houreDegree);
+
+        second.style.transform = `rotate(${secondDegree}deg)`;
+        minute.style.transform = `rotate(${minuteDegree}deg)`;
+        hour.style.transform = `rotate(${houreDegree}deg)`;
+
+        console.log(second.style.transform = `rotate(${secondDegree}deg)`);
+        console.log(minute.style.transform = `rotate(${minuteDegree}deg)`);
+        console.log(hour.style.transform = `rotate(${houreDegree}deg)`);
+
+    }
+
+    setInterval(setDate, 1000);
+
+
+</script>
+
+</body>
+
+</html>
